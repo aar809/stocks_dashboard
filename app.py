@@ -9,7 +9,7 @@ import yfinance as yf
 
 app = Flask(__name__)
 
-sample_df = pd.read_csv("data/hsi.csv")
+# sample_df = pd.read_csv("data/hsi.csv")
 # gspc = pd.read_csv("data/gspc.csv")
 # dji = pd.read_csv("data/dji.csv")
 # ixic = pd.read_csv("data/ixic.csv")
@@ -44,9 +44,9 @@ def index():
 		bar = create_plot(feature, stock, timeframe)
 		return render_template('index.html', plot=bar, stock=stock)
 
-@app.route('/homepage')
-def homepage():
-    return render_template('homepage.html')
+# @app.route('/homepage')
+# def homepage():
+#     return render_template('homepage.html')
 
 # @app.route('/plot', methods=["GET", "POST"])
 # def index():
