@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Stock Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+</head>
+<body>
+            
+<!--     <form action="/" method="post" name="stock">
+            <label> Choose the Stock....</label>
+            <select class="form-control" id ='stock' name='stock'>
+                <option value="HSI">HSI</option>
+                <option value="DJI">DJI</option>
+                <option value="^GSPC">S&P</option>
+                <option value="^IXIC">NASDAQ</option>                        
+            </select> -->
+        <!-- <button class="btn btn-primary" type="submit">Quote</button> -->
+    <!-- </form> -->
+
+<form action="/" method="post">
+
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <label> Plot Type</label>
+            <select class="form-control" id ='first_cat' name = "feature">
+                <option value="Line">Line</option>
+                <option value="Scatter">Scatter</option>
+                <option value="Percentage Change">Percentage Change</option>
+                <option value="Experiment">Experiment</option>
+            </select>
+        </div>
+<br>
+    <div class="row">
+        <div class="col-xs-3">
+            <label> Timeframe</label>
+                <select class="form-control" id ='timeframe' name='timeframe'>
+                    <option value="{{timeframe}}">{{timeframe}}</option>
+                    <option value="1mo">1 month</option>
+                    <option value="6mo">6 months</option>
+                    <option value="12mo">1 year</option>
+                    <option value="24mo">2 years</option>
+                    <option value="60mo">5 years</option>
+                    <option value="max">All</option>                        
+                </select>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+    <label> Stock Ticker</label>
+        <input autocomplete="off" value="{{stock}}" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text">
+    </div>
+    <br>
+    <div class="form-group">
+    <label> Stock Ticker #2</label>
+        <input autocomplete="off" value="{{stock2}}" autofocus class="form-control" name="symbol2" placeholder="Symbol" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+
+
+<h1>
+<p style="text-align:center;">{{shortName}} ({{stock}})</p>
+</h1>
+        <div class="col-md-6">
+            <div class="chart" id="bargraph">
+                <script>
+                    var graphs = {{plot | safe}};
+                    Plotly.plot('bargraph',graphs,{});
+                </script>
+<!-- to overlay multiple charts -->
+                <script>
+                    var graphs = {{plot2 | safe}};
+                    Plotly.plot('bargraph',graphs,{});
+                </script>
+                                
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1>Key Data:</h1>
+
+{% for table in tables %}
+            {{ table|safe }}
+{% endfor %}
+<br>
+<div><b>Sector:</b> {{sector}} </div>
+<div><b>Industry:</b> {{industry}} </div>
+<div><b>Company size:</b> {{fullTimeEmployees}} </div>
+<div><b>Business Summary:</b> {{longBusinessSummary}} </div>
+<div><b>Market Cap:</b> {{marketCap}}</div>
+
+<h2> Day High: {{dayHigh}}</h2>
+<h2> Day Low: {{dayLow}}</h2>
+<h2> Day Open: {{open}}</h2>
+
+
+
+<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plots.js') }}"></script>
+<script> $(document).ready(function() {
+  $('#stock').on('change', function() {
+     document.forms['stock'].submit();
+  });
+});
+</script>
+
+<br> 
+
+<footer class="small text-center text-muted">
+    Data provided for free by <a href="https://iextrading.com/developer">Yahoo Finance - yfinance API</a>.
+    <p>Application developed by Aaron Chan.</p>
+</footer>
+
+</body>
+</html>
