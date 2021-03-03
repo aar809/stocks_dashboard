@@ -10,4 +10,4 @@ Credits:
  - Heroku for app deployments
  - CS50X staff for building me up with knowledge, insights and ever-so entertaining lectures and assignments
 
-You can check out my dashboard deployed on Heroku here: https://cs50-stocks-dashboard.herokuapp.com/
+You can check out my dashboard deployed on Heroku here: [https://cs50-stocks-dashboard.herokuapp.com/](https://cs50-stocks-dashboard.herokuapp.com/)
