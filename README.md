@@ -1,5 +1,4 @@
-My CS50X Final Project is a Stocks Dashboard that  allows users to input the stock ticker of any stock,
-and be able to see the stock price trends and a variety of other financial data presented in the form of an interactive dashboard and tables.
+My CS50X Final Project is a Stocks Dashboard that extracts data from an Finance data API and displays it on an interactive dashboard to allow users to input the stock ticker of any stock, and be able to see the stock price trends and a variety of other financial data presented in the form of an interactive dashboard and tables.
 
 Some basic features include the ability to chart the stock price in the last 6 months, 12 months, 2 years, 5 years, or all; and the
 ability to compare 2 stocks' trends side-by-side.
